@@ -1,0 +1,8 @@
+uuid: ca131f63-27a3-4119-8bfd-17541905470b
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: U5VlGjd_SfV0Qm_EfnaynOfc549cNscFAx48JfYoMRI
+id: default
+label: Master

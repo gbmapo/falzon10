@@ -1,0 +1,24 @@
+uuid: f8d57139-1141-4b9b-8cc8-581b0ca88eea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_date_end
+    - node.type.basic_page_with_external_url
+  module:
+    - datetime
+id: node.basic_page_with_external_url.field_event_date_end
+field_name: field_event_date_end
+entity_type: node
+bundle: basic_page_with_external_url
+label: 'Event Date End'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

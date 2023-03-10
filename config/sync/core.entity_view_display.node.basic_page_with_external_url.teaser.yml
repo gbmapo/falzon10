@@ -1,0 +1,36 @@
+uuid: 6c9733bb-5945-48d1-b7bd-4ad7fd4de65a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.basic_page_with_external_url.field_event_date_end
+    - field.field.node.basic_page_with_external_url.field_event_date_start
+    - field.field.node.basic_page_with_external_url.field_external_url
+    - field.field.node.basic_page_with_external_url.field_tags
+    - node.type.basic_page_with_external_url
+  module:
+    - field_layout
+    - layout_discovery
+    - user
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: node.basic_page_with_external_url.teaser
+targetEntityType: node
+bundle: basic_page_with_external_url
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_event_date_end: true
+  field_event_date_start: true
+  field_external_url: true
+  field_tags: true
+  langcode: true

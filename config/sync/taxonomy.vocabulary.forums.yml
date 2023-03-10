@@ -1,0 +1,13 @@
+uuid: c595ff88-1352-460a-a7b7-6378b29018ec
+langcode: fr
+status: true
+dependencies:
+  enforced:
+    module:
+      - forum
+_core:
+  default_config_hash: mflVSHt4N6ABP4asGcCrKD0Qvf7y9WO_Cs_v5vCjOrw
+name: Forums
+vid: forums
+description: 'Vocabulaire de navigation dans les forums'
+weight: -10

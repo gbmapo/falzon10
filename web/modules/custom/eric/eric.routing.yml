@@ -1,0 +1,17 @@
+# -------------------------------------------------------------------
+eric.seen_movies:
+  path: '/eric/seenmovies'
+  defaults:
+    _form: '\Drupal\eric\Form\SeenMovies'
+    _title: 'The movies I''ve seen this year'
+  requirements:
+    _permission: 'see movies'
+# -------------------------------------------------------------------
+eric.read_books:
+  path: '/eric/readbooks'
+  defaults:
+    _form: '\Drupal\eric\Form\ReadBooks'
+    _title: 'The books I''ve read this year'
+  requirements:
+    _permission: 'see books'
+# -------------------------------------------------------------------

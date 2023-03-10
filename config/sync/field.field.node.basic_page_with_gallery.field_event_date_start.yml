@@ -1,0 +1,24 @@
+uuid: 50c60a2c-a6ad-46f3-81ef-38d0c98bf721
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_date_start
+    - node.type.basic_page_with_gallery
+  module:
+    - datetime
+id: node.basic_page_with_gallery.field_event_date_start
+field_name: field_event_date_start
+entity_type: node
+bundle: basic_page_with_gallery
+label: 'Event Date Start'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

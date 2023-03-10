@@ -1,0 +1,102 @@
+<?php
+
+/**
+ * @file
+ * Contains shared.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\views\ViewExecutable;
+use Drupal\Core\Url;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+/**
+ * Implements hook_help().
+ */
+function shared_help($route_name, RouteMatchInterface $route_match)
+{
+  switch ($route_name) {
+    // Main module help for the shared module.
+    case 'help.page.shared':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Fonctions utilisées par les autres modules') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function shared_theme()
+{
+  return [
+    'shared' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+
+
+function onepage_zymphonies_theme_preprocess_views_view_fullcalendar(&$vars)
+{
+  $view = $vars['view'];
+  switch ($view->id()) {
+    case 'calendar':
+      switch ($view->current_display) {
+        case 'page_1':
+          foreach ($vars['#attached']['drupalSettings']['fullCalendarView'] as $key => $value) {
+            $calendar_options = json_decode($value['calendar_options']);
+            $events = $calendar_options->events;
+            foreach ($events as $key2 => $value2) {
+              $nid = $value2->eid;
+              $node = \Drupal\node\Entity\Node::load($nid);
+              $type = $node->get('type')->target_id;
+              if ($type == "basic_page_with_external_url") {
+                $url = $node->get('field_external_url')->getValue();
+                $url = $url[0]['uri'];
+                $events[$key2]->url = $url;
+              }
+            }
+            $calendar_options->events = $events;
+            $vars['#attached']['drupalSettings']['fullCalendarView'][0]['calendar_options'] = json_encode($calendar_options);
+          }
+          break;
+        default:
+      }
+      break;
+    default:
+  }
+
+}
+
+/**
+ * replaced by shared_form_user_login_form_alter and shared_user_login_form_submit
+ * from https://www.thesavvyfew.com/insights/how-redirect-user-after-login-drupal-proper-way
+ *
+function shared_user_login($account)
+{
+  $currentUrl = \Drupal::service('path.current')->getPath();
+  if ($currentUrl && (substr($currentUrl, 0, 12) == '/user/reset/')) {
+    return;
+  }
+  $response = new RedirectResponse('/');
+  $response->send();
+  exit;
+}
+ */
+
+function shared_form_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $currentUrl = \Drupal::service('path.current')->getPath();
+  if ($currentUrl && (substr($currentUrl, 0, 12) == '/user/reset/')) {
+    return;
+  }
+  $form['#submit'][] = 'shared_user_login_form_submit';
+}
+function shared_user_login_form_submit($form, FormStateInterface $form_state) {
+  $url = Url::fromRoute('<front>');
+  $form_state->setRedirectUrl($url);
+}

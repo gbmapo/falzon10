@@ -1,0 +1,16 @@
+uuid: 36320382-fe05-4f06-a839-2a86fe0e908f
+langcode: fr
+status: true
+dependencies:
+  enforced:
+    module:
+      - forum
+_core:
+  default_config_hash: ERCHDVB33lub-cz7DSYR7HuBlYJjmVUdPw0IIYa3ZXc
+name: 'Sujet de discussion'
+type: forum
+description: 'Un <em>Sujet</em> commence un nouveau fil de discussion dans un forum.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

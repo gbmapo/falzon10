@@ -1,0 +1,23 @@
+uuid: d158a700-ff6e-44e6-af67-b9e889029df9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.basic_page_with_gallery
+  module:
+    - text
+id: node.basic_page_with_gallery.body
+field_name: body
+entity_type: node
+bundle: basic_page_with_gallery
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

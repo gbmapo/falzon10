@@ -1,0 +1,63 @@
+/*
+.parallax-region {
+  background-color: #E1E1FF !important;
+}
+ */
+
+h1, h2, h5 {
+  text-transform: none !important;
+}
+
+.ulysse {
+  color: #990000;
+}
+
+.tttt {
+  color: #0000cc;
+}
+
+.ttttTVShow {
+  color: #008080;
+}
+
+.date {
+  float: right;
+  font-size: 0.6em;
+}
+
+.imageulysse {
+  width: 33px;
+  height: 51px;
+  margin-top: 4px;
+  margin-right: 4px;
+  float: left;
+}
+
+.justify {
+  text-align: justify;
+}
+
+.signature {
+  text-align: right;
+  font-weight: bold;
+}
+
+#seen-movies hr{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 1px #808080 solid;
+}
+#seen-movies i{
+  font-style: italic;
+}
+
+#seen-movies .form-item label {
+  display: inline;
+}
+
+#edit-ulysse {
+  display: -webkit-inline-box;
+}
+#edit-tttt {
+  display: -webkit-inline-box;
+}

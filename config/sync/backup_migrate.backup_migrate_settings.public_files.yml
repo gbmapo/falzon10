@@ -1,0 +1,31 @@
+uuid: 37457380-d854-4eef-942f-088396912aef
+langcode: en
+status: true
+dependencies: {  }
+id: public_files
+label: 'Public Files'
+config:
+  namer:
+    filename: public_files
+    timestamp: true
+    timestamp_format: Y-m-d\TH-i-s
+  compressor:
+    compression: gzip
+  utils:
+    site_offline: false
+  metadata:
+    description: ''
+  db_exclude:
+    exclude_tables: {  }
+    nodata_tables: {  }
+  private_files_exclude:
+    exclude_filepaths:
+      - backup_migrate
+  public_files_exclude:
+    exclude_filepaths:
+      - js
+      - css
+      - php
+      - styles
+      - 'config_*'
+      - .htaccess
