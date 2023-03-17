@@ -32,6 +32,9 @@ h1, h2, h5 {
   margin-right: 4px;
   float: left;
 }
+.justify > img {
+  margin-right: 4px;
+}
 
 .justify {
   text-align: justify;
