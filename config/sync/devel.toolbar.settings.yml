@@ -6,6 +6,7 @@ toolbar_items:
   - devel.configs_list
   - devel.container_info.service
   - devel.admin_settings_link
+  - devel.execute_php
   - devel.route_info
   - devel.run_cron
   - devel.state_system_page

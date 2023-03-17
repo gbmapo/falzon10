@@ -41,7 +41,7 @@ function shared_theme()
 }
 
 
-function onepage_zymphonies_theme_preprocess_views_view_fullcalendar(&$vars)
+function tara_preprocess_views_view_fullcalendar(&$vars)
 {
   $view = $vars['view'];
   switch ($view->id()) {
