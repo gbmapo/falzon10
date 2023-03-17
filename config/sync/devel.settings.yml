@@ -1,5 +1,5 @@
 _core:
-  default_config_hash: 8SYa5OOpQGdg4wnttb0LFNuG6GmivsS2qNv9sTH9gDI
+  default_config_hash: Aqx6J0yYT6mVqT0fbjeP4JkoL-700nmudVF5d6Pq2Yo
 langcode: fr
 page_alter: false
 raw_names: false
@@ -10,4 +10,4 @@ debug_mail_file_format: '%to-%subject-%datetime.mail.txt'
 debug_mail_directory: 'temporary://devel-mails'
 devel_dumper: kint
 debug_logfile: 'temporary://drupal_debug.txt'
-debug_pre: false
+debug_pre: true
