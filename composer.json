@@ -29,7 +29,7 @@
         "drupal/r4032login": "^2.2",
         "drupal/tara": "^10.0",
         "drupal/upgrade_status": "^4.0@alpha",
-        "drush/drush": "^11.4"
+        "drush/drush": "^12.5"
     },
     "conflict": {
         "drupal/drupal": "*"
