@@ -21,11 +21,11 @@ whatsapp_url: ''
 github_url: ''
 telegram_url: ''
 vimeo_url: ''
-slider_show: 0
+slider_show: 1
 slider_image: {  }
 slider_time: '5000'
 slider_dots: 'true'
-slider_code: ''
+slider_code: "<div>\r\n    <object data=\"/sites/default/files/inline-images/Falzon.svg\" width=\"100%\"></object>\r\n</div>"
 front_sidebar: 0
 google_font: local
 comment_user_pic: 0

@@ -15,9 +15,9 @@ h1 {
 
 .floatleft {
   float: left;
-  width: 160px;
+  width: fit-content;
   margin-right: 5px;
-  padding: 5px;
+  padding: 12px;
   border: 1px solid gray;
   text-align: left;
 }

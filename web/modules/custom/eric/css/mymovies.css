@@ -4,10 +4,15 @@
 }
  */
 
+/*
 h1, h2, h5 {
   text-transform: none !important;
 }
-
+ */
+/* H2 comme H3 du thème */
+h2 {
+  font-size: 1.5rem;
+}
 .ulysse {
   color: #990000;
 }
