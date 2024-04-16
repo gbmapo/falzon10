@@ -2367,26 +2367,26 @@
         },
         {
             "name": "drupal/tara",
-            "version": "10.0.4",
+            "version": "10.1.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/tara.git",
-                "reference": "10.0.4"
+                "reference": "10.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/tara-10.0.4.zip",
-                "reference": "10.0.4",
-                "shasum": "f291b60a7468fc9f9c69a727f517a21ad9ad4873"
+                "url": "https://ftp.drupal.org/files/projects/tara-10.1.2.zip",
+                "reference": "10.1.2",
+                "shasum": "a110b080f5ec5843a4236d4919b7ee44e3ced95c"
             },
             "require": {
-                "drupal/core": "^9.3 || ^10"
+                "drupal/core": "^9 || ^10"
             },
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "10.0.4",
-                    "datestamp": "1674227125",
+                    "version": "10.1.2",
+                    "datestamp": "1694332694",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
