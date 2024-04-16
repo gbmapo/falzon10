@@ -2113,26 +2113,29 @@
         },
         {
             "name": "drupal/imce",
-            "version": "3.0.7",
+            "version": "3.0.12",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/imce.git",
-                "reference": "3.0.7"
+                "reference": "3.0.12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/imce-3.0.7.zip",
-                "reference": "3.0.7",
-                "shasum": "c31fcf2e94f6e0be4609cf0603a51d32d5d1731e"
+                "url": "https://ftp.drupal.org/files/projects/imce-3.0.12.zip",
+                "reference": "3.0.12",
+                "shasum": "31c07ec0084892c5f6feb2737e42cd6e76944756"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10"
             },
+            "require-dev": {
+                "drupal/ckeditor": "^1.0"
+            },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.7",
-                    "datestamp": "1675193633",
+                    "version": "3.0.12",
+                    "datestamp": "1709855260",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
