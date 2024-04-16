@@ -21,7 +21,7 @@ whatsapp_url: ''
 github_url: ''
 telegram_url: ''
 vimeo_url: ''
-slider_show: 1
+slider_show: 0
 slider_image: {  }
 slider_time: '5000'
 slider_dots: 'true'
