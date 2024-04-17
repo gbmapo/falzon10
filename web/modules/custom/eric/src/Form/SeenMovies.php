@@ -280,7 +280,7 @@ class SeenMovies extends FormBase
           case 'comment':
             $comment = strtr($value, $transcod);
             $comment = str_replace("{", "<i>", $value);
-            $comment = str_replace("}", "</i>", $review);
+            $comment = str_replace("}", "</i>", $comment);
             $comment = str_replace(["\r\n", "\n", "\r"], '<br />', $comment);
             break;
           case 'country':
