@@ -4,46 +4,51 @@ namespace Drupal\eric\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+
 use Drupal;
 use Drupal\Core\Url;
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\BeforeCommand;
+use Drupal\Core\Ajax\ReplaceCommand;
+use Drupal\Core\Ajax\OpenModalDialogCommand;
 
 /**
  * Class SeenMovies.
  */
-class SeenMovies extends FormBase
-{
+class SeenMovies extends FormBase {
 
   protected $step = 1;
 
   /**
    * {@inheritdoc}
    */
-  public function getFormId()
-  {
+  public function getFormId() {
     return 'seen_movies';
   }
 
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state)
-  {
+  public function buildForm(array $form, FormStateInterface $form_state) {
+
     if ($this->step == 1) {
 
       if (Drupal::currentUser()->hasPermission('add movies')) {
         $form['ulysse'] = [
           '#type' => 'submit',
+          '#name' => 'ulysse',
           '#value' => $this->t('Ulysse'),
           '#weight' => '0',
         ];
         $form['tttt'] = [
           '#type' => 'submit',
+          '#name' => 'tttt',
           '#value' => $this->t('TTTT'),
           '#weight' => '0',
         ];
       }
 
-      $currentYear = (int)date('Y');
+      $currentYear = (int) date('Y');
       $options = [];
       for ($i = 2004; $i < $currentYear + 1; $i++) {
         $options[$i] = $i;
@@ -63,6 +68,31 @@ class SeenMovies extends FormBase
           'wrapper' => 'movies',
         ],
       ];
+
+      $form['stringtosearch'] = [
+        '#type' => 'textfield',
+        '#size' => 32,
+        '#prefix' => '<div id="stringtosearch">',
+      ];
+      $form['submittosearch'] = [
+        '#type' => 'submit',
+        '#name' => 'search',
+        '#value' => 'Search',
+        '#ajax' => [
+          'callback' => '::ajaxSearch',
+          'progress' => [
+            'type' => 'throbber',
+            'message' => NULL,
+          ],
+        ],
+        '#suffix' => '</div>',
+        '#states' => [
+          'visible' => [
+            ':input[name="stringtosearch"]' => ['!value' => ''],
+          ],
+        ],
+      ];
+
 
       $form['movies'] = [
         '#type' => 'container',
@@ -201,7 +231,7 @@ class SeenMovies extends FormBase
         '#placeholder' => '<iframe blabla ></iframe>',
         '#cols' => 80,
         '#rows' => 3,
-                '#weight' => 7,
+        '#weight' => 7,
       ];
 
       $form['actions'] = [
@@ -230,88 +260,145 @@ class SeenMovies extends FormBase
     return $form;
   }
 
-  public function yearCallback($form, FormStateInterface $form_state)
-  {
+  public function yearCallback($form, FormStateInterface $form_state) {
     return $form['movies'];
   }
 
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, FormStateInterface $form_state)
-  {
-//     foreach ($form_state->getValues() as $key => $value) {
-//     }
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+
+    if ($this->step == 1) {
+      if ($form_state->getTriggeringElement()['#name'] == 'search') {
+        if (mb_strlen($form_state->getValue('stringtosearch')) < 3) {
+          $form_state->setErrorByName(
+            'stringtosearch',
+            $this->t('You should enter at least 3 characters.'),
+          );
+        }
+      }
+    }
     parent::validateForm($form, $form_state);
+  }
+
+  public function ajaxSearch(array &$form, FormStateInterface $form_state) {
+
+    $response = new AjaxResponse();
+
+    if ($form_state->hasAnyErrors()) {
+      $messages = Drupal::messenger()->deleteAll();
+      $messages = [
+        '#theme' => 'status_messages',
+        '#message_list' => $messages,
+      ];
+      $response->addCommand(new BeforeCommand('#stringtosearch', $messages));
+    }
+    else {
+      $response->addCommand(new ReplaceCommand('.message.message-error', ''));
+      $values = $form_state->getValues();
+      $command = 'grep -hir "' . $values['stringtosearch'] . '" mymovies/index20*';
+      $output = shell_exec($command);
+      if ($output) {
+        $content = '<head><base href="/mymovies/">';
+        $content .= $output;
+        $content .= '</head>';
+        $title = t('Search for "') . $values['stringtosearch'] . '"';
+        $dialog_options = [
+          'width' => '90%',
+        ];
+        $settings = [];
+
+        $attachments['library'][] = 'core/drupal.dialog.ajax';
+        $response->setAttachments($attachments);
+
+        $response->addCommand(new OpenModalDialogCommand($title, $content, $dialog_options, $settings));
+      }
+    }
+    return $response;
+
   }
 
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state)
-  {
+  public function submitForm(array &$form, FormStateInterface $form_state) {
 
     if ($this->step == 1) {
-      $values = $form_state->getValues();
-      switch ($values['op']) {
-        case 'Ulysse':
+
+      switch ($form_state->getTriggeringElement()['#name']) {
+        case 'search':
+          break;
+        case 'ulysse':
           $form_state->setRebuild();
           $this->step = '2U';
           break;
-        case 'TTTT':
+        case 'tttt':
           $form_state->setRebuild();
           $this->step = '2T';
           break;
         default:
       }
+
     }
     else {
 
-      $transcod = get_html_translation_table(HTML_ENTITIES);
-      $tttt = ["label_0T.gif", "label_1T.gif", "label_2T.gif", "label_3T.gif", "label_4T.gif"];
-      $ulysse = ["0Helas.gif", "1Bof.gif", "2Passable.gif", "3Bien.gif", "4Bravo.gif"];
+      $tttt = [
+        "label_0T.gif",
+        "label_1T.gif",
+        "label_2T.gif",
+        "label_3T.gif",
+        "label_4T.gif",
+      ];
+      $ulysse = [
+        "0Helas.gif",
+        "1Bof.gif",
+        "2Passable.gif",
+        "3Bien.gif",
+        "4Bravo.gif",
+      ];
 
       foreach ($form_state->getValues() as $key => $value) {
 
         switch ($key) {
           case 'actors':
-            $actors = $value ? strtr(' Avec : ' . $value . '.', $transcod) : '';
+            $actors = $value ? ' Avec : ' . $value . '.' : '';
             break;
           case 'comment':
-            $comment = strtr($value, $transcod);
+            $comment = $value;
             $comment = str_replace("{", "<i>", $value);
             $comment = str_replace("}", "</i>", $comment);
             $comment = str_replace(["\r\n", "\n", "\r"], '<br />', $comment);
             break;
           case 'country':
-            $country = strtr($value, $transcod);
+            $country = $value;
             break;
           case 'date':
             $date = substr($value, 8, 2) . "/" . substr($value, 5, 2) . "/" . substr($value, 0, 4);
             break;
           case 'director':
-            $director = strtr(' Réalisateur : ' . $value . '.', $transcod);
+            $director = ' Réalisateur : ' . $value . '.';
             break;
           case 'duration':
             $duration = ' (' . $value . ').';
             break;
           case 'movietheater':
-            $movietheater = $value ? strtr('Cinéma : ' . $value, $transcod) : '';
+            $movietheater = $value ? 'Cinéma : ' . $value : '';
             break;
           case 'review':
-            $review = strtr($value, $transcod);
+            $review = $value;
             $review = str_replace("{", "<i>", $value);
             $review = str_replace("}", "</i>", $review);
             $review = str_replace(["\r\n", "\n", "\r"], '<br />', $review);
             break;
           case 'signature':
-            $signature = strtr($value, $transcod);
+            $signature = $value;
             break;
           case 'title':
-            $title = strtr($value, $transcod);
+            $title = $value;
             break;
           case 'titleoriginal':
-            $titleoriginal = strtr('[' . $value . '] ', $transcod);
+            $titleoriginal = '[' . $value . '] ';
             break;
           case 'tttt':
             $image = $tttt[$value];
@@ -322,13 +409,13 @@ class SeenMovies extends FormBase
               $aTemp = explode(" ", $value);
               foreach ($aTemp as $item) {
                 switch (TRUE) {
-                  case (substr($item, 0, 5)=='width'):
+                  case (substr($item, 0, 5) == 'width'):
                     $width = substr($item, 6);
                     break;
-                  case (substr($item, 0, 6)=='height'):
+                  case (substr($item, 0, 6) == 'height'):
                     $height = substr($item, 7);
                     break;
-                  case (substr($item, 0, 3)=='src'):
+                  case (substr($item, 0, 3) == 'src'):
                     $src = substr($item, 4);
                     break;
                   default:
@@ -364,7 +451,7 @@ class SeenMovies extends FormBase
         default:
       }
 
-      $currentYear = (int)date('Y');
+      $currentYear = (int) date('Y');
       $file = 'mymovies/index' . $currentYear . '.html';
 
       $content = file_get_contents($file);

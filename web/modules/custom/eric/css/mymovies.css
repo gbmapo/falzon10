@@ -61,6 +61,11 @@ h2 {
   display: inline;
 }
 
+#stringtosearch {
+  display: flex;
+  flex-direction: row;
+}
+
 #edit-ulysse {
   display: -webkit-inline-box;
 }
