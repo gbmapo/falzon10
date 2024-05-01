@@ -9,8 +9,9 @@ use Drupal;
 use Drupal\Core\Url;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\BeforeCommand;
-use Drupal\Core\Ajax\ReplaceCommand;
+use Drupal\Core\Ajax\MessageCommand;
 use Drupal\Core\Ajax\OpenModalDialogCommand;
+use Drupal\Core\Ajax\ReplaceCommand;
 
 /**
  * Class SeenMovies.
@@ -32,6 +33,10 @@ class SeenMovies extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
 
     if ($this->step == 1) {
+
+      $form['#prefix'] = '<div id="form_step1">';
+      $form['#suffix'] = '</div>';
+
 
       if (Drupal::currentUser()->hasPermission('add movies')) {
         $form['ulysse'] = [
@@ -70,16 +75,20 @@ class SeenMovies extends FormBase {
       ];
 
       $form['stringtosearch'] = [
+        '#prefix' => '<div id="searcharea">',
         '#type' => 'textfield',
         '#size' => 32,
-        '#prefix' => '<div id="stringtosearch">',
+        '#default_value' => '',
+        '#placeholder' => t('Enter at least 3 characters'),
+        '#attributes' => ['id' => 'stringtosearch'],
       ];
       $form['submittosearch'] = [
         '#type' => 'submit',
         '#name' => 'search',
-        '#value' => 'Search',
+        '#value' => t('Search'),
         '#ajax' => [
           'callback' => '::ajaxSearch',
+          'wrapper' => 'form_step1',
           'progress' => [
             'type' => 'throbber',
             'message' => NULL,
@@ -271,11 +280,22 @@ class SeenMovies extends FormBase {
 
     if ($this->step == 1) {
       if ($form_state->getTriggeringElement()['#name'] == 'search') {
-        if (mb_strlen($form_state->getValue('stringtosearch')) < 3) {
-          $form_state->setErrorByName(
-            'stringtosearch',
-            $this->t('You should enter at least 3 characters.'),
-          );
+        $values = $form_state->getValues();
+        if (mb_strlen($values['stringtosearch']) < 3) {
+          $form_state->setErrorByName('stringtosearch', $this->t('You must enter at least 3 characters.'),);
+        }
+        else {
+          $command = 'grep -hir "' . $values['stringtosearch'] . '" mymovies/index20*';
+          $output = shell_exec($command);
+          if ($output) {
+            $form_state->set('stringtosearch', $values['stringtosearch']);
+            $form_state->set('output', $output);
+          }
+          else {
+            $form_state->setErrorByName('stringtosearch', $this->t('« %stringtosearch » was not found.', [
+              '%stringtosearch' => $values['stringtosearch'],
+            ]),);
+          }
         }
       }
     }
@@ -285,35 +305,32 @@ class SeenMovies extends FormBase {
   public function ajaxSearch(array &$form, FormStateInterface $form_state) {
 
     $response = new AjaxResponse();
+    $attachments['library'][] = 'core/drupal.dialog.ajax';
+    $response->setAttachments($attachments);
 
     if ($form_state->hasAnyErrors()) {
       $messages = Drupal::messenger()->deleteAll();
+      $response->addCommand(new ReplaceCommand('.message.message-error', ''));
       $messages = [
         '#theme' => 'status_messages',
         '#message_list' => $messages,
       ];
-      $response->addCommand(new BeforeCommand('#stringtosearch', $messages));
+      $response->addCommand(new BeforeCommand('#searcharea', $messages));
     }
     else {
-      $response->addCommand(new ReplaceCommand('.message.message-error', ''));
-      $values = $form_state->getValues();
-      $command = 'grep -hir "' . $values['stringtosearch'] . '" mymovies/index20*';
-      $output = shell_exec($command);
-      if ($output) {
-        $content = '<head><base href="/mymovies/">';
-        $content .= $output;
-        $content .= '</head>';
-        $title = t('Search for "') . $values['stringtosearch'] . '"';
-        $dialog_options = [
-          'width' => '90%',
-        ];
-        $settings = [];
-
-        $attachments['library'][] = 'core/drupal.dialog.ajax';
-        $response->setAttachments($attachments);
-
-        $response->addCommand(new OpenModalDialogCommand($title, $content, $dialog_options, $settings));
-      }
+      $form['stringtosearch']['#value'] = '';
+      $response->addCommand(new ReplaceCommand(NULL, $form));
+      $content = '<head><base href="/mymovies/">';
+      $content .= $form_state->getStorage()['output'];
+      $content .= '</head>';
+      $title = t('Search for « %stringtosearch »', [
+        '%stringtosearch' => $form_state->getStorage()['stringtosearch'],
+      ]);
+      $dialog_options = [
+        'width' => '90%',
+      ];
+      $settings = [];
+      $response->addCommand(new OpenModalDialogCommand($title, $content, $dialog_options, $settings));
     }
     return $response;
 

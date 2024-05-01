@@ -48,27 +48,16 @@ h2 {
   font-weight: bold;
 }
 
-#seen-movies hr{
+.seen-movies hr{
   margin-top: 0px;
   margin-bottom: 0px;
   border-top: 1px #808080 solid;
 }
-#seen-movies i{
+.seen-movies i{
   font-style: italic;
 }
 
-#seen-movies .form-item label {
+.seen-movies .form-item label {
   display: inline;
 }
 
-#stringtosearch {
-  display: flex;
-  flex-direction: row;
-}
-
-#edit-ulysse {
-  display: -webkit-inline-box;
-}
-#edit-tttt {
-  display: -webkit-inline-box;
-}
