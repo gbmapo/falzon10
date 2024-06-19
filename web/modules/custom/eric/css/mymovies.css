@@ -56,8 +56,13 @@ h2 {
 .seen-movies i{
   font-style: italic;
 }
-
 .seen-movies .form-item label {
   display: inline;
 }
 
+#edit-ulysse {
+  display: inline-flex;
+}
+#edit-tttt {
+  display: inline-flex;
+}
