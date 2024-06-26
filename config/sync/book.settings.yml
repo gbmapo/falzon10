@@ -1,6 +1,5 @@
 _core:
   default_config_hash: i-_2TVi6FUEAqBgNRJkt6aaYmiw1k_LTrXzJS6wlZ4U
-langcode: fr
 allowed_types:
   - book
 block:

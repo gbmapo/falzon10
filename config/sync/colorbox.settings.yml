@@ -23,7 +23,7 @@ custom:
     slideshow: 0
     auto: true
     speed: 2500
-    text_start: 'start slideshow'
+    text_start: 'lancer le diaporama'
     text_stop: 'stop slideshow'
 advanced:
   unique_token: 1

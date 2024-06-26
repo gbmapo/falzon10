@@ -11,3 +11,4 @@ name: Forums
 vid: forums
 description: 'Vocabulaire de navigation dans les forums'
 weight: -10
+new_revision: false

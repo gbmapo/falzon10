@@ -7,10 +7,10 @@ dependencies:
       - forum
 _core:
   default_config_hash: ERCHDVB33lub-cz7DSYR7HuBlYJjmVUdPw0IIYa3ZXc
-name: 'Sujet de discussion'
+name: 'Forum topic'
 type: forum
-description: 'Un <em>Sujet</em> commence un nouveau fil de discussion dans un forum.'
-help: ''
+description: 'A <em>forum topic</em> starts a new discussion thread within a forum.'
+help: null
 new_revision: false
 preview_mode: 1
 display_submitted: true
