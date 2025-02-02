@@ -17,6 +17,7 @@
     "require": {
         "composer/installers": "^2.0",
         "drupal/backup_migrate": "^5.0",
+        "drupal/book": "^2.0",
         "drupal/colorbox": "^2.0",
         "drupal/colorbox_inline": "^2.0",
         "drupal/colorbox_load": "^1.3",

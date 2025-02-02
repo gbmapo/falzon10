@@ -8,15 +8,8 @@ dependencies:
     - field.field.node.book.comment_node_book
     - node.type.book
   module:
-    - field_layout
-    - layout_discovery
     - text
     - user
-third_party_settings:
-  field_layout:
-    id: layout_onecol
-    settings:
-      label: ''
 _core:
   default_config_hash: krIbNOdqw4vMF3Ty8qAW6AxgxmdBig5XuQRBW8-HYCU
 id: node.book.teaser
@@ -38,5 +31,6 @@ content:
     weight: 101
     region: content
 hidden:
+  book_navigation: true
   comment_node_book: true
   langcode: true

@@ -20,4 +20,5 @@ settings:
   label_display: visible
   provider: book
   block_mode: 'book pages'
+  use_top_level_title: false
 visibility: {  }

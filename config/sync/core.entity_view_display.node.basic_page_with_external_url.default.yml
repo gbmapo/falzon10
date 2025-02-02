@@ -9,15 +9,8 @@ dependencies:
     - field.field.node.basic_page_with_external_url.field_tags
     - node.type.basic_page_with_external_url
   module:
-    - field_layout
-    - layout_discovery
     - link
     - user
-third_party_settings:
-  field_layout:
-    id: layout_onecol
-    settings:
-      label: ''
 id: node.basic_page_with_external_url.default
 targetEntityType: node
 bundle: basic_page_with_external_url

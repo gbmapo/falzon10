@@ -9,15 +9,8 @@ dependencies:
     - node.type.book
   module:
     - comment
-    - field_layout
-    - layout_discovery
     - text
     - user
-third_party_settings:
-  field_layout:
-    id: layout_onecol
-    settings:
-      label: ''
 _core:
   default_config_hash: UWTnZUj-u-jp8I_S1C1nUCTlM5iIV2QKdxm37ehFjoI
 id: node.book.default
@@ -32,6 +25,11 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  book_navigation:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
   comment_node_book:
     type: comment_default
     label: hidden
@@ -39,12 +37,12 @@ content:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
-    weight: 20
+    weight: 1
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 2
     region: content
 hidden:
   langcode: true

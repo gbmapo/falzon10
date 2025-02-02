@@ -1,7 +1,6 @@
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 module:
-  action: 0
   automated_cron: 0
   backup_migrate: 0
   block: 0
@@ -25,11 +24,9 @@ module:
   editor: 0
   eric: 0
   field: 0
-  field_layout: 0
   field_ui: 0
   file: 0
   filter: 0
-  forum: 0
   fullcalendar_view: 0
   help: 0
   history: 0
@@ -58,7 +55,6 @@ module:
   telephone: 0
   text: 0
   toolbar: 0
-  tour: 0
   update: 0
   upgrade_status: 0
   user: 0

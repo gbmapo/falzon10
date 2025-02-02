@@ -12,15 +12,8 @@ dependencies:
     - node.type.basic_page_with_gallery
   module:
     - colorbox
-    - field_layout
-    - layout_discovery
     - text
     - user
-third_party_settings:
-  field_layout:
-    id: layout_onecol
-    settings:
-      label: myGallery
 id: node.basic_page_with_gallery.default
 targetEntityType: node
 bundle: basic_page_with_gallery
@@ -33,17 +26,22 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  book_navigation:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
   field_gallery:
     type: colorbox
     label: hidden
     settings:
-      colorbox_node_style: vignette_carree_100x100
-      colorbox_node_style_first: ''
       colorbox_image_style: ''
       colorbox_gallery: post
       colorbox_gallery_custom: ''
       colorbox_caption: auto
       colorbox_caption_custom: ''
+      colorbox_node_style: vignette_carree_100x100
+      colorbox_node_style_first: ''
     third_party_settings: {  }
     weight: 1
     region: content
