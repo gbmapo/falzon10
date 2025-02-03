@@ -2267,26 +2267,26 @@
         },
         {
             "name": "drupal/ng_lightbox",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ng_lightbox.git",
-                "reference": "2.0.0"
+                "reference": "2.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ng_lightbox-2.0.0.zip",
-                "reference": "2.0.0",
-                "shasum": "cbb5bb6d8b748fdd3140062773f1e80ac81d0c26"
+                "url": "https://ftp.drupal.org/files/projects/ng_lightbox-2.1.0.zip",
+                "reference": "2.1.0",
+                "shasum": "7a83123bd73005fb9c0966ca34e8b8e712e14407"
             },
             "require": {
-                "drupal/core": "^8 || ^9 || ^10"
+                "drupal/core": "^10.3 || ^11"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.0",
-                    "datestamp": "1673892933",
+                    "version": "2.1.0",
+                    "datestamp": "1736897946",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2307,22 +2307,23 @@
                     "homepage": "https://www.drupal.org/user/1852732"
                 },
                 {
-                    "name": "Fool2",
+                    "name": "fool2",
                     "homepage": "https://www.drupal.org/user/19111"
                 },
                 {
-                    "name": "NickDickinsonWilde",
+                    "name": "nickdickinsonwilde",
                     "homepage": "https://www.drupal.org/user/3094661"
                 },
                 {
-                    "name": "Sam152",
+                    "name": "sam152",
                     "homepage": "https://www.drupal.org/user/1485048"
                 }
             ],
             "description": "A path based lightbox solution using CSS 3 properties.",
             "homepage": "https://www.drupal.org/project/ng_lightbox",
             "support": {
-                "source": "https://git.drupalcode.org/project/ng_lightbox"
+                "source": "https://git.drupalcode.org/project/ng_lightbox",
+                "issues": "https://www.drupal.org/project/issues/ng_lightbox"
             }
         },
         {
