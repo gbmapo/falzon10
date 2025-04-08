@@ -1,0 +1,11 @@
+mymovies:
+  version: 1.x
+  css:
+    theme:
+      css/mymovies.css: {}
+
+mybooks:
+  version: 1.x
+  css:
+    theme:
+      css/mybooks.css: {}

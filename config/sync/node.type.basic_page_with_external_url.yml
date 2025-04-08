@@ -1,0 +1,17 @@
+uuid: 097e6eed-6844-41c2-a25b-f178fa2055a4
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Basic page with external URL'
+type: basic_page_with_external_url
+description: null
+help: null
+new_revision: true
+preview_mode: 0
+display_submitted: false

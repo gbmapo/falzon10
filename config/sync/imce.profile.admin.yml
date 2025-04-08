@@ -1,0 +1,21 @@
+uuid: 8df5127e-7b54-424c-8933-a94765c03697
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: A4dUIYbp8-slaBb-hJR6sP7rR_AxXUNNiQyeQnpHrHE
+id: admin
+label: 'Profil Admin'
+description: 'Configuration pour les administrateurs du site'
+conf:
+  extensions: '*'
+  maxsize: 0.0
+  quota: 0.0
+  maxwidth: 0
+  maxheight: 0
+  replace: 0
+  folders:
+    -
+      path: .
+      permissions:
+        all: true

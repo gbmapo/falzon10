@@ -1,0 +1,40 @@
+/*
+.parallax-region {
+  background-color: #E1E1FF !important;
+}
+ */
+
+h1 {
+  clear: left;
+  margin-bottom: -10px;
+}
+
+.justify {
+  text-align: justify;
+}
+
+.floatleft {
+  float: left;
+  width: fit-content;
+  margin-right: 5px;
+  padding: 12px;
+  border: 1px solid gray;
+  text-align: left;
+}
+
+a img {
+  display: none;
+}
+
+a:hover img {
+  display: block;
+  border: 4px #4C4C4C solid;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+
+#read-books .form-item label {
+  display: inline;
+}

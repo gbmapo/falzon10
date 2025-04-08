@@ -1,0 +1,13 @@
+{
+    "name": "eric",
+    "type": "drupal-module",
+    "description": "Eric's Stuff",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/eric",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/eric",
+        "source": "http://cgit.drupalcode.org/eric"
+    }
+}

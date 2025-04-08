@@ -1,0 +1,17 @@
+uuid: 50245f69-9ce4-4c9b-85c4-07466151c277
+langcode: en
+status: true
+dependencies: {  }
+name: 'Without Restriction HTML'
+format: without_restriction_html
+weight: 0
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: false
+    weight: -10
+    settings:
+      allowed_html: "<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type='1 A I'> <li> <dl> <dt> <dd> <h2 id='jump-*'> <h3 id> <h4 id> <h5 id> <h6 id> <span> <link>"
+      filter_html_help: true
+      filter_html_nofollow: false

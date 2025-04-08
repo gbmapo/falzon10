@@ -1,0 +1,5 @@
+services:
+  shared.route_subscriber:
+    class: Drupal\shared\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

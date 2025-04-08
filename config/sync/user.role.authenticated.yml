@@ -1,0 +1,32 @@
+uuid: 1fc316b5-ecc5-4ae4-adb0-e5785312225a
+langcode: fr
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+  module:
+    - contact
+    - eric
+    - file
+    - filter
+    - node
+    - search
+    - system
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'access user contact forms'
+  - 'access user profiles'
+  - 'delete own files'
+  - 'search content'
+  - 'see books'
+  - 'see movies'
+  - 'use advanced search'
+  - 'use text format basic_html'
+  - 'view own unpublished content'

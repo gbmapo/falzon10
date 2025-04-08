@@ -1,0 +1,46 @@
+uuid: 4a43a9e2-d73a-4e51-934f-d286c47da788
+langcode: en
+status: true
+dependencies: {  }
+id: database_for_daily_schedule
+label: 'Database for Daily Schedule'
+config:
+  namer:
+    filename: backup
+    timestamp: true
+    timestamp_format: Y-m-d\TH-i-s
+  compressor:
+    compression: gzip
+  utils:
+    site_offline: false
+  metadata:
+    description: ''
+  db_exclude:
+    exclude_tables: {  }
+    nodata_tables:
+      drupal_cache_bootstrap: drupal_cache_bootstrap
+      drupal_cache_config: drupal_cache_config
+      drupal_cache_container: drupal_cache_container
+      drupal_cache_data: drupal_cache_data
+      drupal_cache_default: drupal_cache_default
+      drupal_cache_discovery: drupal_cache_discovery
+      drupal_cache_discovery_migration: drupal_cache_discovery_migration
+      drupal_cache_dynamic_page_cache: drupal_cache_dynamic_page_cache
+      drupal_cache_entity: drupal_cache_entity
+      drupal_cache_menu: drupal_cache_menu
+      drupal_cache_migrate: drupal_cache_migrate
+      drupal_cache_page: drupal_cache_page
+      drupal_cache_render: drupal_cache_render
+      drupal_cache_toolbar: drupal_cache_toolbar
+      drupal_watchdog: drupal_watchdog
+  private_files_exclude:
+    exclude_filepaths:
+      - backup_migrate
+  public_files_exclude:
+    exclude_filepaths:
+      - js
+      - css
+      - php
+      - styles
+      - 'config_*'
+      - .htaccess

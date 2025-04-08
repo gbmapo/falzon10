@@ -1,0 +1,40 @@
+uuid: a9d0cd04-325c-473d-889a-35413be8df6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.basic_page_with_external_url.field_event_date_end
+    - field.field.node.basic_page_with_external_url.field_event_date_start
+    - field.field.node.basic_page_with_external_url.field_external_url
+    - field.field.node.basic_page_with_external_url.field_tags
+    - node.type.basic_page_with_external_url
+  module:
+    - link
+    - user
+id: node.basic_page_with_external_url.default
+targetEntityType: node
+bundle: basic_page_with_external_url
+mode: default
+content:
+  field_external_url:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_event_date_end: true
+  field_event_date_start: true
+  field_tags: true
+  langcode: true

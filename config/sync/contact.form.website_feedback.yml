@@ -1,0 +1,12 @@
+uuid: 226b6a22-d101-4acf-a9aa-1caa5c58ac13
+langcode: en
+status: true
+dependencies: {  }
+id: website_feedback
+label: 'Website feedback'
+recipients:
+  - gbmapo@gmail.com
+reply: ''
+weight: 0
+message: null
+redirect: null

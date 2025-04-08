@@ -1,0 +1,15 @@
+uuid: 67c651d8-9191-4d89-8eee-d646086583e9
+langcode: en
+status: true
+dependencies: {  }
+name: vignette_carree_100x100
+label: 'Vignette carrée (100x100)'
+effects:
+  0c49181c-6d97-4d20-8edc-439061bcd88a:
+    uuid: 0c49181c-6d97-4d20-8edc-439061bcd88a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 100
+      height: 100
+      anchor: center-center
