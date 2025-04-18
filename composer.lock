@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dbbfc21b51bf4cea2436ef320110d9e7",
+    "content-hash": "7ee8085aae6e2830c266ebb07f8823b2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2427,26 +2427,26 @@
         },
         {
             "name": "drupal/tara",
-            "version": "10.1.2",
+            "version": "11.0.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/tara.git",
-                "reference": "10.1.2"
+                "reference": "11.0.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/tara-10.1.2.zip",
-                "reference": "10.1.2",
-                "shasum": "a110b080f5ec5843a4236d4919b7ee44e3ced95c"
+                "url": "https://ftp.drupal.org/files/projects/tara-11.0.5.zip",
+                "reference": "11.0.5",
+                "shasum": "08667bf2a545b76620b51e335d53e0a16c8e9243"
             },
             "require": {
-                "drupal/core": "^9 || ^10"
+                "drupal/core": "^9 || ^10 || ^11"
             },
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "10.1.2",
-                    "datestamp": "1694332694",
+                    "version": "11.0.5",
+                    "datestamp": "1741589073",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2463,7 +2463,7 @@
                     "homepage": "https://www.drupal.org/user/79351"
                 }
             ],
-            "description": "<p>Tara is a light weight modern Drupal 8, 9, 10 theme by <a href=\"https://drupar.com/\" target=\"_blank\">Drupar.com</a></p><p><a href=\"https://drupar.com/theme/tara\" target=\"_blank\">Theme Homepage</a> | <a href=\"https://drupar.com/tara-theme-documentation\" target=\"_blank\">User Guide</a></p>",
+            "description": "<p>Tara is a light weight modern Drupal 9, 10, 11 theme by <a href=\"https://drupar.com/\" target=\"_blank\">Drupar.com</a></p><p><a href=\"https://drupar.com/theme/tara\" target=\"_blank\">Theme Homepage</a> | <a href=\"https://drupar.com/tara-theme-documentation\" target=\"_blank\">User Guide</a></p>",
             "homepage": "https://www.drupal.org/project/tara",
             "support": {
                 "source": "https://git.drupalcode.org/project/tara"

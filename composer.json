@@ -28,7 +28,7 @@
         "drupal/fullcalendar_view": "^5.1",
         "drupal/imce": "^3.0",
         "drupal/r4032login": "^2.2",
-        "drupal/tara": "^10.0",
+        "drupal/tara": "^11.0",
         "drupal/upgrade_status": "^4.3",
         "drush/drush": "^12.5"
     },
