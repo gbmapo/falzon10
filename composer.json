@@ -29,7 +29,6 @@
         "drupal/imce": "^3.0",
         "drupal/r4032login": "^2.2",
         "drupal/tara": "^11.0",
-        "drupal/upgrade_status": "^4.3",
         "drush/drush": "^12.5"
     },
     "conflict": {
@@ -103,5 +102,8 @@
                 "      composer remove drupal/core-project-message"
             ]
         }
+    },
+    "require-dev": {
+        "drupal/upgrade_status": "^4.3"
     }
 }
