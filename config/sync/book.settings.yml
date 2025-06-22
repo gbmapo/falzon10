@@ -5,3 +5,4 @@ allowed_types:
   - book
 child_type: basic_page_with_gallery
 book_sort: weight
+show_top_item: false
