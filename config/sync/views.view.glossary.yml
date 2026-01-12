@@ -85,7 +85,7 @@ display:
           entity_type: user
           entity_field: name
           plugin_id: field
-          label: Auteur
+          label: Author
           exclude: false
           alter:
             alter_text: false
@@ -217,7 +217,7 @@ display:
           submit_button: Apply
           reset_button: false
           reset_button_label: Reset
-          exposed_sorts_label: 'Trier par'
+          exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
@@ -346,6 +346,7 @@ display:
           summary: ''
           order: asc
           empty_table: false
+          class: ''
       row:
         type: fields
         options:
