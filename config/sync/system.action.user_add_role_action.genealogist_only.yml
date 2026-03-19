@@ -1,0 +1,14 @@
+uuid: d04ee651-24bc-480f-b1f5-813a6bbc4c1c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - user.role.genealogist_only
+  module:
+    - user
+id: user_add_role_action.genealogist_only
+label: 'Ajouter le rôle Genealogist Only aux utilisateurs sélectionnés'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: genealogist_only
