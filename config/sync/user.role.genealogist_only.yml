@@ -1,0 +1,9 @@
+uuid: 45b29eb1-cefe-48c5-98da-3226f9152596
+langcode: fr
+status: true
+dependencies: {  }
+id: genealogist_only
+label: 'Genealogist Only'
+weight: 0
+is_admin: false
+permissions: {  }

@@ -1,0 +1,14 @@
+uuid: 150f4ecb-09b7-4ab0-839c-71a1dbbd7f2b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - user.role.genealogist_only
+  module:
+    - user
+id: user_remove_role_action.genealogist_only
+label: 'Enlever le rôle Genealogist Only des utilisateurs sélectionnés'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: genealogist_only
