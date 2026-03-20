@@ -44,7 +44,13 @@ final class EventSubscriber implements EventSubscriberInterface {
     $routes_OK = [
       'user.login',
       'user.logout',
+      'user.logout.confirm',
       'user.password',
+      'user.reset.login',
+      'user.reset',
+      'user.reset.form',
+      'user.pass',
+      'entity.user.edit_form',
       'system.403',
       'system.404',
     ];
@@ -54,9 +60,9 @@ final class EventSubscriber implements EventSubscriberInterface {
 
     if ($this->currentUser->hasRole('genealogist_only')) {
       if ($path !== '/genealogy') {
-        $url = Url::fromRoute('system.403');
-        $response = new RedirectResponse($url->toString());
-        $event->setResponse($response); // ← C'était ça qui manquait    }
+        $url = '/genealogy';
+        $response = new RedirectResponse($url);
+        $event->setResponse($response);
       }
     }
   }
