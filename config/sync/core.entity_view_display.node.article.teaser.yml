@@ -11,7 +11,6 @@ dependencies:
     - field.field.node.article.field_tags
     - node.type.article
   module:
-    - image
     - text
     - user
 _core:
@@ -29,31 +28,10 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_image:
-    type: image
-    label: hidden
-    settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: -1
-    region: content
-  field_tags:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 10
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
-    region: content
 hidden:
   comment: true
   comment_node_article: true
+  field_image: true
+  field_tags: true
   langcode: true
+  links: true

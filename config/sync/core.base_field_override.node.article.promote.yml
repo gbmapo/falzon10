@@ -1,4 +1,4 @@
-uuid: 328b71f6-f505-4ba3-b04f-227bef96e753
+uuid: 46238786-fab8-42e4-b09a-1e0e1df72b5c
 langcode: fr
 status: true
 dependencies:
@@ -8,7 +8,7 @@ id: node.article.promote
 field_name: promote
 entity_type: node
 bundle: article
-label: 'Promoted to front page'
+label: "Promu en page d'accueil"
 description: ''
 required: false
 translatable: true
@@ -17,6 +17,6 @@ default_value:
     value: 1
 default_value_callback: ''
 settings:
-  on_label: 'On'
-  off_label: 'Off'
+  on_label: Activé
+  off_label: Désactivé
 field_type: boolean

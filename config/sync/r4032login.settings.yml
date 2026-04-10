@@ -2,7 +2,7 @@ _core:
   default_config_hash: PMB0aJrA5afgG0swQ81b31o6ax8keNE22FKGnQH81EQ
 langcode: fr
 display_denied_message: true
-access_denied_message: 'Access denied. You must log in to view this page.'
+access_denied_message: 'Accès refusé. Vous devez vous connecter pour consulter cette page.'
 access_denied_message_type: error
 redirect_authenticated_users_to: ''
 throw_authenticated_404: false
