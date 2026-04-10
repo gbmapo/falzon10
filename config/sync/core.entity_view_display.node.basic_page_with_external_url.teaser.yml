@@ -15,15 +15,11 @@ id: node.basic_page_with_external_url.teaser
 targetEntityType: node
 bundle: basic_page_with_external_url
 mode: teaser
-content:
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
-    region: content
+content: {  }
 hidden:
   field_event_date_end: true
   field_event_date_start: true
   field_external_url: true
   field_tags: true
   langcode: true
+  links: true
