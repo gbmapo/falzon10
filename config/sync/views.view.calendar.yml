@@ -15,7 +15,7 @@ dependencies:
     - node
     - user
 id: calendar
-label: Calendar
+label: Calendrier
 module: views
 description: ''
 tag: ''
@@ -444,9 +444,9 @@ display:
       path: calendar
       menu:
         type: normal
-        title: Calendar
+        title: Calendrier
         description: ''
-        weight: -48
+        weight: -46
         expanded: false
         menu_name: main
         parent: ''
