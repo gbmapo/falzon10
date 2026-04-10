@@ -8,9 +8,9 @@ dependencies:
 _core:
   default_config_hash: msYnighLW1IbiBfyQbwbQwb2cU-5LECiFryt60k0Nfk
 id: block_content
-label: 'Content blocks'
+label: 'Custom block library'
 module: views
-description: 'Find and manage content blocks.'
+description: 'Find and manage custom blocks.'
 tag: default
 base_table: block_content_field_data
 base_field: id
@@ -21,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Content blocks'
+      title: 'Custom block library'
       fields:
         info:
           id: info
@@ -294,7 +294,7 @@ display:
           submit_button: Apply
           reset_button: false
           reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          exposed_sorts_label: 'Trier par'
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
@@ -315,7 +315,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'There are no content blocks available.'
+          content: 'There are no custom blocks available.'
           tokenize: false
       sorts: {  }
       arguments: {  }
@@ -522,7 +522,7 @@ display:
       menu:
         type: tab
         title: Blocks
-        description: 'Create and edit content blocks.'
+        description: 'Create and edit block content.'
         weight: 0
         expanded: false
         menu_name: admin

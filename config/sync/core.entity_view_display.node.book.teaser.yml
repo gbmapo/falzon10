@@ -25,12 +25,8 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 101
-    region: content
 hidden:
   book_navigation: true
   comment_node_book: true
   langcode: true
+  links: true
