@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - system.menu.main
     - taxonomy.vocabulary.tags
   content:
     - 'taxonomy_term:tags:135ce0b2-0357-4c16-b024-29955bd184ca'
@@ -313,7 +314,7 @@ display:
     display_plugin: page
     position: 1
     display_options:
-      title: 'Nodes per Person'
+      title: ''
       filters:
         status:
           id: status
@@ -350,14 +351,14 @@ display:
           exposed: true
           expose:
             operator_id: field_tags_target_id_op
-            label: Personne
+            label: 'Choisir une personne'
             description: ''
             use_operator: false
             operator: field_tags_target_id_op
             operator_limit_selection: false
             operator_list: {  }
             identifier: field_tags_target_id
-            required: false
+            required: true
             remember: false
             multiple: false
             remember_roles:
@@ -392,6 +393,15 @@ display:
       display_description: ''
       display_extenders: {  }
       path: nodes-per-person
+      menu:
+        type: normal
+        title: Tags
+        description: ''
+        weight: -45
+        expanded: false
+        menu_name: main
+        parent: ''
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
