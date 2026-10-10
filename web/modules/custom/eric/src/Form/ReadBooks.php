@@ -192,7 +192,14 @@ class ReadBooks extends FormBase {
           $form_state->setErrorByName('stringtosearch', $this->t('You must enter at least 3 characters.'),);
         }
         else {
-          $command = 'grep -hir "' . $values['stringtosearch'] . '" mybooks/index20*';
+          // 1. Remplacer dans le terme recherché toute apostrophe bizarre (´=U+00B4, ’=U+2019, ‘=U+2018) par '=U+0027,
+          $pattern = str_replace(
+            ["'", "\u{00B4}", "\u{2019}", "\u{2018}"],
+            "'",
+            $values['stringtosearch']
+          );
+          // 2. Construire la commande avec le motif échappé pour le shell
+          $command = 'grep -hirP ' . escapeshellarg($pattern) . ' mybooks/index20*';
           $output = shell_exec($command);
           if ($output) {
             $form_state->set('stringtosearch', $values['stringtosearch']);
@@ -259,6 +266,13 @@ class ReadBooks extends FormBase {
     else {
 
       foreach ($form_state->getValues() as $key => $value) {
+
+        // 1. Remplace toute apostrophe bizarre (´=U+00B4, ’=U+2019, ‘=U+2018) par '=U+0027,
+        $value = str_replace([
+          "\u{00B4}",
+          "\u{2019}",
+          "\u{2018}",
+        ], "'", $value);
 
         switch ($key) {
           case 'author':
